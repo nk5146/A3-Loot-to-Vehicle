@@ -3,7 +3,7 @@ systemChat "Init";
 
 player addEventHandler ["GetInMan", {
 	_var = (_this select 2);
-	if( (_var isKindOf "Car") || (_var isKindOf "Air") || (_var isKindOf "Ship") ) then {
+	if((_var isKindOf "Car") || (_var isKindOf "Air") || (_var isKindOf "Ship")) then {
 		systemChat "Entered Vehicle";
 		lastVehID = (_var call BIS_fnc_netId);
 	};
@@ -14,7 +14,7 @@ player addEventHandler ["Respawn", {
 	
 	player addEventHandler ["GetInMan", {
 		_var = (_this select 2);
-		if( (_var isKindOf "Car") || (_var isKindOf "Air") || (_var isKindOf "Ship") ) then {
+		if((_var isKindOf "Car") || (_var isKindOf "Air") || (_var isKindOf "Ship")) then {
 			systemChat "Entered Vehicle";
 			lastVehID = (_var call BIS_fnc_netId);
 		};
@@ -31,8 +31,10 @@ player addEventHandler ["Respawn", {
 		'
 			_show = false;
 			_trg = cursorTarget;
-			if( (_trg isKindOf "Man" && (!alive _trg)) || (_trg isKindOf "WeaponHolderSimulated") || (_trg isKindOf "WeaponHolder") ) then{
-				_show = true;
+			if((_trg isKindOf "Man" && (!alive _trg)) || (_trg isKindOf "WeaponHolderSimulated") || (_trg isKindOf "WeaponHolder")) then {
+				if ((player distance2D cursorTarget) <= 3.5) then {
+					_show = true;
+				}
 			};
 			_show
 		'
@@ -54,8 +56,10 @@ act_car = player addAction [
 	'
 		_show = false;
 		_trg = cursorTarget;
-		if( (_trg isKindOf "Man" && (!alive _trg)) || (_trg isKindOf "WeaponHolderSimulated") || (_trg isKindOf "WeaponHolder") ) then{
-			_show = true;
+		if((_trg isKindOf "Man" && (!alive _trg)) || (_trg isKindOf "WeaponHolderSimulated") || (_trg isKindOf "WeaponHolder")) then {
+			if ((player distance2D cursorTarget) <= 3.5) then {
+				_show = true;
+			}
 		};
 		_show
 	'
