@@ -1,13 +1,3 @@
-
-//fnc_getItems = compile preprocessFile "fn_getItems.sqf";
-
-//{
-	//systemChat str(itemCargo _x);
-	//systemChat str(magazineCargo _x);
-	//systemChat str(weaponCargo _x);
-//}forEach _containersInCrate;
-
-
 if (lastVehId isEqualTo "none") then{
 	systemChat "No last vehicle";
 }else{
